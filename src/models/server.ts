@@ -1,5 +1,5 @@
 import express, {Application} from 'express';
-import routerUser from '../routes/user';
+import allRoutes from '../routes/routes';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -24,7 +24,7 @@ export class Server{
     }
 
     routes(){
-        this.app.use('/api/',routerUser)
+        this.app.use('/api/',allRoutes)
     }
 
     midlewares(){

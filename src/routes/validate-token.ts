@@ -12,7 +12,7 @@ const validateToken = async (req: Request, res: Response, next: NextFunction) =>
             //existe token
             const bearerToken = headerToken.slice(7);
             //verifica token
-            jwt.verify(bearerToken,process.env.SECRET_KEY || 'password')
+            jwt.verify(bearerToken,process.env.SECRET_KEY || 'softKey')
             next()
         } catch (error) {
             res.status(401).json({
@@ -21,7 +21,7 @@ const validateToken = async (req: Request, res: Response, next: NextFunction) =>
         }
     } else {
         res.status(401).json({
-            msg: 'Acceso denegado.'
+            msg: 'Acceso denegado No Token.'
         })
     }
 }

@@ -2,14 +2,14 @@ import { Model, DataTypes } from 'sequelize';
 import sequelize from '../db/connection'; // Asegúrate de importar correctamente tu instancia de sequelize
 
 export class User extends Model {
-    public userName!: string;
+    public username!: string;
     public email!: string;
     public password!: string;
 }
 
 User.init(
     {
-        userName: {
+        username: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true
