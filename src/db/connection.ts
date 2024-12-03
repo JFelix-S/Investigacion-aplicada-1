@@ -1,7 +1,10 @@
 import { Sequelize } from "sequelize";
+import dotenv from 'dotenv';
+dotenv.config();
 
-const sequelize = new Sequelize('u214874994_API','u214874994_UserAPI','Roelias123.', {
-    host: '77.37.56.60',
+const sequelize = new Sequelize(
+    String(process.env.DB_NAME),String(process.env.DB_USER),String(process.env.DB_PASSWORD), {
+    host: process.env.HOST || 'localhost',
     dialect: 'mysql'
 });
 

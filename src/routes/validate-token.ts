@@ -1,5 +1,8 @@
 import { Request, Response, NextFunction } from  'express';
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const validateToken = async (req: Request, res: Response, next: NextFunction) =>{
     const headerToken: any = req.headers['authorizarion'];
@@ -9,7 +12,7 @@ const validateToken = async (req: Request, res: Response, next: NextFunction) =>
             //existe token
             const bearerToken = headerToken.slice(7);
             //verifica token
-            jwt.verify(bearerToken,process.env.SECRET_KEY || 'y5;@7=XIlj#Rz0awH)gNef$2.(ZQ92@ilet5,$X11UopR.Ix+7')
+            jwt.verify(bearerToken,process.env.SECRET_KEY || 'password')
             next()
         } catch (error) {
             res.status(401).json({

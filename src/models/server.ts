@@ -1,6 +1,8 @@
 import express, {Application} from 'express';
 import routerUser from '../routes/user';
+import dotenv from 'dotenv';
 
+dotenv.config();
 import { User } from './user';
 
 export class Server{
